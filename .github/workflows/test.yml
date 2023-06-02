@@ -1,0 +1,26 @@
+name: Test program
+
+on:
+    push:
+      branches:
+      - master
+
+jobs:
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: ilammy/setup-nasm@v1
+        - uses: actions/checkout@v3
+        - name: Build NASM x64 program
+          run: nasm -f elf64 -g main.nasm && ld main.o -static -o main
+        - name: Run program
+          id: exec
+          run: |
+            main_output=$(./main)
+            echo "main_output=$main_output" >> $GITHUB_OUTPUT
+        - name: Check output
+          run: |
+            if [ "${{ steps.exec.outputs.main_output }}" ] == "chaos";
+            then echo "OK"
+            else echo "${{ steps.exec.outputs.main_output }}" && exit 1
+            fi
