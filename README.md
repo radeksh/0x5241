@@ -2,6 +2,9 @@
 
 List of useful links for learning low-level programming
 
+#### System V ABI
+https://www.sco.com/developers/devspecs/gabi41.pdf
+
 #### Quick reference linux syscalls table (x86_64)
 https://chromium.googlesource.com/chromiumos/docs/+/HEAD/constants/syscalls.md#x86_64-64_bit
 
