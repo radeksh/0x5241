@@ -1,2 +1,7 @@
 server
 client
+asm/main*
+asm/socket*
+
+!*.c
+!*.nasm
