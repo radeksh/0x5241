@@ -3,6 +3,6 @@ client
 asm/main*
 asm/socket*
 asm/x11*
-
+asm/hello*
 !*.c
 !*.nasm
